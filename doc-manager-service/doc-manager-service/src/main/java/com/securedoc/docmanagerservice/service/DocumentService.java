@@ -3,6 +3,7 @@ package com.securedoc.docmanagerservice.service;
 import com.securedoc.docmanagerservice.dao.entites.DocStatus;
 import com.securedoc.docmanagerservice.dao.entites.Document;
 import com.securedoc.docmanagerservice.dao.repositories.DocumentRepository;
+import com.securedoc.docmanagerservice.dto.DocumentMessage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
@@ -35,8 +36,10 @@ public class DocumentService {
         // 2. Uploader vers MinIO
         minioService.uploadFile(generatedFileName, file);
 
-        // 3. Envoyer message RabbitMQ
-        rabbitTemplate.convertAndSend("scan-queue", doc.getId());
+        // 3. Envoyer message RabbitMQ (id + path)
+        DocumentMessage message = new DocumentMessage(doc.getId(), doc.getMinioPath());
+
+        rabbitTemplate.convertAndSend("scan-queue", message);
 
         System.out.println("[DocManager] Fichier traité avec succès. ID: " + doc.getId());
 
