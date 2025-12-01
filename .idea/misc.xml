@@ -4,11 +4,14 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/gateway-service/gateway-service/pom.xml" />
         <option value="$PROJECT_DIR$/doc-manager-service/doc-manager-service/pom.xml" />
+        <option value="$PROJECT_DIR$/audit-service/audit-service/pom.xml" />
+        <option value="$PROJECT_DIR$/ai-redactor-service/ai-redactor-service/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" project-jdk-name="openjdk-25" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_23" project-jdk-name="openjdk-25" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
