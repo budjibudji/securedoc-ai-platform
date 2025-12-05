@@ -4,9 +4,11 @@ package com.securedoc.airedactorservice.service;
 
 import io.minio.GetObjectArgs;
 import io.minio.MinioClient;
+import io.minio.PutObjectArgs;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 
 @Service
@@ -34,5 +36,28 @@ public class FileService {
         } catch (Exception e) {
             throw new RuntimeException("Erreur téléchargement MinIO : " + e.getMessage());
         }
+
     }
+    public String uploadCleanPdf(String originalFilename, byte[] pdfBytes) {
+        try {
+            String cleanName = "clean_" + originalFilename;
+
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(pdfBytes);
+
+            minioClient.putObject(
+                    PutObjectArgs.builder()
+                            .bucket(bucketName)
+                            .object(cleanName)
+                            .stream(inputStream, pdfBytes.length, -1)
+                            .contentType("application/pdf")
+                            .build()
+            );
+
+            return cleanName;
+
+        } catch (Exception e) {
+            throw new RuntimeException("Erreur upload PDF propre : " + e.getMessage());
+        }
+    }
+
 }

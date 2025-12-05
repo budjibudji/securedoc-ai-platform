@@ -1,4 +1,4 @@
-package com.securedoc.docmanagerservice.dao.entites;
+package com.securedoc.docmanagerservice.dao.entities;
 
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
@@ -14,6 +14,9 @@ public class Document {
     private String filename;
 
     private String minioPath;
+
+    // 👉 Nouveau champ (PDF flouté)
+    private String cleanMinioPath;
 
     private LocalDateTime uploadTime;
 
@@ -31,7 +34,7 @@ public class Document {
         this.status = status;
     }
 
-    // --- Getters et Setters (Manuels car Lombok bloque) ---
+    // --- Getters et Setters ---
     public String getId() {
         return id;
     }
@@ -54,6 +57,14 @@ public class Document {
 
     public void setMinioPath(String minioPath) {
         this.minioPath = minioPath;
+    }
+
+    public String getCleanMinioPath() {
+        return cleanMinioPath;
+    }
+
+    public void setCleanMinioPath(String cleanMinioPath) {
+        this.cleanMinioPath = cleanMinioPath;
     }
 
     public LocalDateTime getUploadTime() {

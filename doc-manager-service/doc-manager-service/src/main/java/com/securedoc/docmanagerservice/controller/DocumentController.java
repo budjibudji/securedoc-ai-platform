@@ -2,7 +2,7 @@
 
 package com.securedoc.docmanagerservice.controller;
 
-import com.securedoc.docmanagerservice.dao.entites.Document;
+import com.securedoc.docmanagerservice.dao.entities.Document;
 import com.securedoc.docmanagerservice.service.DocumentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

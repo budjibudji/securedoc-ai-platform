@@ -3,7 +3,7 @@ package com.securedoc.airedactorservice.dto;
 import java.io.Serializable;
 
 // C'est une classe simple (POJO) pour transporter les données
-public class DocumentMessage implements Serializable {
+public class DocumentMessage  {
     private String id;
     private String minioPath;
 

@@ -73,5 +73,5 @@ spec:
     app: postgres
   ports:
     - protocol: TCP
-      port: 5432
-      targetPort: 5432
+      port: 5432 #port pour communiquer postgre service aux microservices
+      targetPort: 5432 #port interne de postgre dans k8s

@@ -1,7 +1,7 @@
 package com.securedoc.docmanagerservice.service;
 
-import com.securedoc.docmanagerservice.dao.entites.DocStatus;
-import com.securedoc.docmanagerservice.dao.entites.Document;
+import com.securedoc.docmanagerservice.dao.entities.DocStatus;
+import com.securedoc.docmanagerservice.dao.entities.Document;
 import com.securedoc.docmanagerservice.dao.repositories.DocumentRepository;
 import com.securedoc.docmanagerservice.dto.DocumentMessage;
 import lombok.RequiredArgsConstructor;
