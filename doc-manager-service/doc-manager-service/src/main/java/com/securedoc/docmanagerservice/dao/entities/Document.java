@@ -15,7 +15,6 @@ public class Document {
 
     private String minioPath;
 
-    // 👉 Nouveau champ (PDF flouté)
     private String cleanMinioPath;
 
     private LocalDateTime uploadTime;
@@ -23,63 +22,40 @@ public class Document {
     @Enumerated(EnumType.STRING)
     private DocStatus status;
 
-    // --- Constructeurs ---
-    public Document() {
-    }
+    // 🔥 NEW
+    private String createdBy;
 
-    public Document(String filename, String minioPath, LocalDateTime uploadTime, DocStatus status) {
+    public Document() {}
+
+    public Document(String filename, String minioPath, LocalDateTime uploadTime,
+                    DocStatus status, String createdBy) {
         this.filename = filename;
         this.minioPath = minioPath;
         this.uploadTime = uploadTime;
         this.status = status;
+        this.createdBy = createdBy;
     }
 
-    // --- Getters et Setters ---
-    public String getId() {
-        return id;
-    }
+    // Getters & setters
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public String getFilename() {
-        return filename;
-    }
+    public String getFilename() { return filename; }
+    public void setFilename(String filename) { this.filename = filename; }
 
-    public void setFilename(String filename) {
-        this.filename = filename;
-    }
+    public String getMinioPath() { return minioPath; }
+    public void setMinioPath(String minioPath) { this.minioPath = minioPath; }
 
-    public String getMinioPath() {
-        return minioPath;
-    }
+    public String getCleanMinioPath() { return cleanMinioPath; }
+    public void setCleanMinioPath(String cleanMinioPath) { this.cleanMinioPath = cleanMinioPath; }
 
-    public void setMinioPath(String minioPath) {
-        this.minioPath = minioPath;
-    }
+    public LocalDateTime getUploadTime() { return uploadTime; }
+    public void setUploadTime(LocalDateTime uploadTime) { this.uploadTime = uploadTime; }
 
-    public String getCleanMinioPath() {
-        return cleanMinioPath;
-    }
+    public DocStatus getStatus() { return status; }
+    public void setStatus(DocStatus status) { this.status = status; }
 
-    public void setCleanMinioPath(String cleanMinioPath) {
-        this.cleanMinioPath = cleanMinioPath;
-    }
-
-    public LocalDateTime getUploadTime() {
-        return uploadTime;
-    }
-
-    public void setUploadTime(LocalDateTime uploadTime) {
-        this.uploadTime = uploadTime;
-    }
-
-    public DocStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(DocStatus status) {
-        this.status = status;
-    }
+    public String getCreatedBy() { return createdBy; }
+    public void setCreatedBy(String createdBy) { this.createdBy = createdBy; }
 }
