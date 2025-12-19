@@ -42,7 +42,9 @@ public class DocumentService {
         // 3. Envoyer message RabbitMQ (id + path)
         DocumentMessage message = new DocumentMessage(doc.getId(), doc.getMinioPath());
 
-        rabbitTemplate.convertAndSend("scan-queue", message);
+        rabbitTemplate.convertAndSend("doc-exchange", "", message);
+
+        System.out.println("✅ [DocManager] Message diffusé à l'IA et à l'Audit via doc-exchange");
 
         System.out.println("[DocManager] Fichier traité avec succès. ID: " + doc.getId());
 

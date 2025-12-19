@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ai-redactor-service" />
+        <module name="audit-service" />
       </profile>
       <profile name="Annotation profile for doc-manager-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -18,17 +19,10 @@
         </processorPath>
         <module name="doc-manager-service" />
       </profile>
-      <profile name="Annotation profile for gateway-service" enabled="true">
-        <sourceOutputDir name="target/generated-sources/annotations" />
-        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.42/lombok-1.18.42.jar" />
-        </processorPath>
-        <module name="audit-service" />
-        <module name="gateway-service" />
-      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="gateway-service" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
