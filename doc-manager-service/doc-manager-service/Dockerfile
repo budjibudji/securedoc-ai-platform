@@ -3,11 +3,11 @@ FROM maven:3.8.5-openjdk-17 AS builder
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
-# On compile le projet et on crée le JAR (skip tests pour aller vite au début)
+# On compile le projet et on crée le JAR
 RUN mvn clean package -DskipTests
 
-# Etape 2 : On crée l'image finale légère (juste le JRE pour lancer le code)
-FROM openjdk:17-jdk-slim
+# Etape 2 : IMAGE CORRIGÉE (Eclipse Temurin au lieu de OpenJDK Slim)
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 # On récupère le JAR construit à l'étape 1
 COPY --from=builder /app/target/*.jar app.jar
